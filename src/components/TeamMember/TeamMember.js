@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TeamMember.css';
 import MatterEmptyAvatar from '../../assets/matter_empty_avatar.svg';
+import { AddButtonContainer, TeamHeading } from '../styled-components';
 
 class TeamMember extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
+    lastName: PropTypes.string,
     title: PropTypes.string.isRequired,
     photoUrl: PropTypes.string,
     story: PropTypes.string,
@@ -32,7 +34,14 @@ class TeamMember extends React.PureComponent {
           <h2 className="title">{this.props.title}</h2>
           <h1 className="name">{this.props.name}</h1>
         </header>
-        <div className="body">{this.props.story}</div>
+        <div className="body">{this.props.story}
+        <TeamHeading>
+            {this.props.heading}
+        </TeamHeading>
+        <AddButtonContainer>
+          {this.props.add}
+        </AddButtonContainer>
+        </div>
         <footer style={{ backgroundColor: this.props.favoriteColor }}>
           <div className="full-width-flex-box">
             <div className="one-third-flex-box stat">9.0</div>
